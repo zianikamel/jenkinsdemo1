@@ -52,7 +52,7 @@ pipeline {
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
                     environment {
                         VOLUME = '$(pwd)/sources'
-                        IMAGE = 'cdrx/pyinstaller-linux:python2'
+                        IMAGE = 'quar/pyinstaller-ubuntu:18.04'
                     }
                     steps {
                         //This dir step creates a new subdirectory named by the build number.
