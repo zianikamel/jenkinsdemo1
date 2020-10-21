@@ -67,10 +67,10 @@ pipeline {
                             //This sh step executes the pyinstaller command (in the PyInstaller container) on your simple Python application.
                             //This bundles your add2vals.py Python application into a single standalone executable file
                             //and outputs this file to the dist workspace directory (within the Jenkins home directory).
-                            sh "docker run 'pyinstaller add2vals.py'"
+                            sh "docker run  ${IMAGE} 'pyinstaller add2vals.py'"
                         }
                     }
-                    post {
+                    post { 
                         success {
                             //This archiveArtifacts step archives the standalone executable file and exposes this file
                             //through the Jenkins interface.
