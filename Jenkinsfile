@@ -52,7 +52,7 @@ pipeline {
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
                     environment {
                         VOLUME = '$(pwd)/sources'
-                        IMAGE = 'cdrx/pyinstaller-linux:latest'
+                        IMAGE = 'six8/pyinstaller-alpine'
                     }
                     steps {
                         //This dir step creates a new subdirectory named by the build number.
@@ -67,7 +67,7 @@ pipeline {
                             //This sh step executes the pyinstaller command (in the PyInstaller container) on your simple Python application.
                             //This bundles your add2vals.py Python application into a single standalone executable file
                             //and outputs this file to the dist workspace directory (within the Jenkins home directory).
-                            sh "docker run  ${IMAGE} 'pyinstaller add2vals.py'"
+                            sh "docker run --rm -v '${PWD}:/src' ${IMAGE} --onefile sources/add2vals.py"
                         }
                     }
                     post { 
