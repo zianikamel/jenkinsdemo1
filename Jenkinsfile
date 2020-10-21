@@ -52,7 +52,7 @@ pipeline {
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
                     environment {
                         VOLUME = '$(pwd)/sources:/src'
-                        IMAGE = 'six8/pyinstaller-alpine'
+                        IMAGE = 'python:2-alpine'
                     }
                     steps {
                         //This dir step creates a new subdirectory named by the build number.
