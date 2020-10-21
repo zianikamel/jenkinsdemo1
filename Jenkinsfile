@@ -68,7 +68,7 @@ pipeline {
                             //This bundles your add2vals.py Python application into a single standalone executable file
                             //and outputs this file to the dist workspace directory (within the Jenkins home directory).
                             sh "ls '{VOLUME}${IMAGE}'"
-                            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller sources/add2vals.py'"
+                            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller add2vals.py'"
                         }
                     }
                     post {
